@@ -1,8 +1,6 @@
 .accordion details {
   border: 1px solid #dadada;
 }
-
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +56,121 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(6, auto);
+  gap: 0 18px; /* slightly tighter for closer match */
+  max-width: 900px;
+  margin: 40px auto 0 auto;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+@media (max-width: 900px) {
+  .accordion {
+    grid-template-columns: 1fr;
+    grid-auto-flow: row;
+    grid-template-rows: none;
+    gap: 0;
+    max-width: 100%;
+  }
+}
+
+.accordion details {
+  border: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  width: 100%;
+  border-bottom: 1px solid #E5E8E8;
+  min-height: 58px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.accordion details:nth-child(6),
+.accordion details:nth-child(12) {
+  border-bottom: none;
+}
+
+.accordion summary,
+.accordion .accordion-item-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 16px;
+  color: #0C2340;
+  padding: 14px 54px 14px 0; /* more right padding for icon */
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  min-height: 58px;
+  line-height: 1.4;
+  position: relative;
+  gap: 20px;
+}
+
+.accordion summary::-webkit-details-marker,
+.accordion summary::marker {
+  display: none;
+}
+
+.accordion summary p,
+.accordion .accordion-item-label p {
+  margin: 0;
+  font-weight: 700;
+  font-size: 16px;
+  color: #0C2340;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 92%;
+  word-break: break-word;
+}
+
+/* Prominent, more upright icon container */
+.accordion summary::after {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  min-height: 28px;
+  border-radius: 50%;
+  border: 2px solid #0C2340;
+  color: #0C2340;
+  opacity: 0.98;
+  font-size: 18px;
+  font-weight: 700;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0;
+  margin-right: 2px;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+
+.accordion details[open] summary,
+.accordion details summary:hover,
+.accordion details summary:focus {
+  background: transparent;
+  outline: none;
+}
+
+.accordion details .accordion-item-body {
+  padding: 0;
+}
+
+.accordion details + details {
+  margin-top: 0;
 }
