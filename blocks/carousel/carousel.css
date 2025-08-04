@@ -159,15 +159,9 @@
   position: relative;
   min-height: 480px;
   background: #e5eef8;
-  /* Use a subtle fallback if no image appears */
   background-size: cover;
   background-position: center;
 }
-
-/* Overlay a background image if the design expects it.
-   (For developer: ideally, apply an inline style or class here for the actual image.) */
-
-/* Move card lower and anchor to left */
 .carousel .carousel-slide .carousel-slide-content {
   background: #002855;
   color: #fff;
@@ -187,8 +181,6 @@
   left: 0;
   z-index: 2;
 }
-
-/* Decorative quote icon as blue circle overlapping upper left */
 .carousel .carousel-slide .carousel-slide-content::before {
   content: "";
   position: absolute;
@@ -202,8 +194,6 @@
   z-index: 3;
   display: block;
 }
-
-/* Quote text styling */
 .carousel .carousel-slide .carousel-slide-content > h3 {
   font-size: 16px;
   font-weight: 400;
@@ -214,8 +204,6 @@
   min-height: 54px;
   letter-spacing: 0;
 }
-
-/* Attribution section (simulated as a flex row for future photo support) */
 .carousel .carousel-slide .carousel-slide-content .carousel-attribution {
   display: flex;
   align-items: center;
@@ -255,8 +243,6 @@
   font-weight: 400;
   color: #cbe0f6;
 }
-
-/* Attribution fallback if no image present */
 .carousel .carousel-slide .carousel-slide-content > p {
   font-size: 13.5px;
   font-weight: 400;
@@ -271,13 +257,9 @@
   color: #fff;
   margin-right: 6px;
 }
-
-/* Hide navigation arrows */
 .carousel .carousel-navigation-buttons {
   display: none;
 }
-
-/* Indicators as short blue bars, bottom-left just under the card */
 .carousel .carousel-slide-indicators {
   position: absolute;
   left: 74px;
@@ -307,8 +289,6 @@
 .carousel .carousel-slide-indicator button[aria-current="true"] {
   background: #002855;
 }
-
-/* Responsive: move card and indicators for mobile */
 @media (max-width: 700px) {
   .carousel .carousel-slide .carousel-slide-content {
     max-width: 96vw;
@@ -328,4 +308,158 @@
     width: 22px;
     height: 22px;
   }
+}
+
+
+.carousel .carousel-slides-container {
+  /* Reinstate background image layering and prevent plain backgrounds */
+  background-size: cover;
+  background-position: center;
+  background-color: transparent;
+}
+
+/* Card container: left/top anchoring, horizontal aspect ratio, less vertical space */
+.carousel .carousel-slide .carousel-slide-content {
+  position: absolute;
+  top: 48px;
+  left: 64px;
+  right: auto;
+  bottom: auto;
+  margin: 0;
+  max-width: 520px;
+  min-width: 280px;
+  min-height: 180px;
+  padding: 32px 36px 30px 54px;
+  background: rgba(255,255,255,0.87);
+  border-radius: 12px;
+  box-shadow: 0 6px 32px 0 rgba(0,40,85,0.11);
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  z-index: 2;
+  overflow: visible;
+}
+
+/* Quote text: more generous line-height, minimize margin above, slightly darker for contrast */
+.carousel .carousel-slide .carousel-slide-content > h3 {
+  color: #23272b;
+  font-size: 18px;
+  line-height: 1.58;
+  margin: 0 0 22px 0;
+  font-weight: 400;
+  text-align: left;
+  letter-spacing: 0.01em;
+}
+
+/* Attribution: tighter grouping and slightly higher weight for the name */
+.carousel .carousel-slide .carousel-slide-content > p {
+  color: #40608c;
+  font-size: 15px;
+  margin: 0 0 0 44px;
+  line-height: 1.28;
+  padding: 0;
+}
+.carousel .carousel-slide .carousel-slide-content > p > strong {
+  color: #002855;
+  font-weight: 700;
+  font-size: 15px;
+  margin-right: 6px;
+  letter-spacing: 0.01em;
+}
+
+/* Profile image: circular avatar to the left of attribution, only for non-main-image slides */
+.carousel .carousel-slide .carousel-slide-image {
+  position: absolute;
+  left: 8px;
+  bottom: 28px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px 0 rgba(0,40,85,0.10);
+  background: #eaf3fb;
+  z-index: 3;
+  display: none;
+}
+.carousel .carousel-slide[data-slide-index]:not([data-slide-index="0"]) .carousel-slide-image {
+  display: block;
+}
+.carousel .carousel-slide .carousel-slide-image picture,
+.carousel .carousel-slide .carousel-slide-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 50%;
+}
+
+/* Decorative quote icon: SVG quote in pale blue circle at upper left of card */
+.carousel .carousel-slide .carousel-slide-content::before {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #eaf3fb;
+  border: 1.5px solid #c6d8ee;
+  z-index: 4;
+  opacity: 1;
+  background-image: url('data:image/svg+xml;utf8,<svg width="28" height="28" xmlns="http://www.w3.org/2000/svg"><text x="6" y="22" font-family="Arial" font-size="22" fill="%2393b1d8">&#8220;</text></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px 20px;
+  content: "";
+  display: block;
+  pointer-events: none;
+}
+
+/* Responsive: reduce padding, move card up/left, scale elements down on small screens */
+@media (max-width: 700px) {
+  .carousel .carousel-slide .carousel-slide-content {
+    top: 5vw;
+    left: 3vw;
+    max-width: 93vw;
+    min-width: 0;
+    min-height: 0;
+    padding: 14px 8px 12px 25px;
+    border-radius: 6px;
+    box-shadow: 0 2px 16px 0 rgba(0,40,85,0.10);
+  }
+  .carousel .carousel-slide .carousel-slide-image {
+    width: 24px;
+    height: 24px;
+    left: 1px;
+    bottom: 12px;
+  }
+  .carousel .carousel-slide .carousel-slide-content > p {
+    margin-left: 28px;
+    font-size: 13px;
+  }
+  .carousel .carousel-slide .carousel-slide-content::before {
+    top: 3px;
+    left: 4px;
+    width: 16px;
+    height: 16px;
+    background-size: 12px 12px;
+  }
+}
+
+/* Page indicators: bring closer, darken */
+.carousel .carousel-slide-indicators {
+  gap: 0 8px;
+  left: 54px;
+  bottom: 18px;
+}
+.carousel .carousel-slide-indicator button {
+  background: #98b6d8;
+  height: 3px;
+  width: 16px;
+}
+.carousel .carousel-slide-indicator button:disabled,
+.carousel .carousel-slide-indicator button[aria-current="true"] {
+  background: #002855;
 }
