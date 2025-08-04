@@ -98,8 +98,6 @@
   justify-content: space-between;
   z-index: 1;
 }
-
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -149,5 +147,185 @@
 
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
+  }
+}
+
+
+.carousel {
+  background: #fff;
+  position: relative;
+}
+.carousel .carousel-slides-container {
+  position: relative;
+  min-height: 480px;
+  background: #e5eef8;
+  /* Use a subtle fallback if no image appears */
+  background-size: cover;
+  background-position: center;
+}
+
+/* Overlay a background image if the design expects it.
+   (For developer: ideally, apply an inline style or class here for the actual image.) */
+
+/* Move card lower and anchor to left */
+.carousel .carousel-slide .carousel-slide-content {
+  background: #002855;
+  color: #fff;
+  max-width: 370px;
+  min-width: 270px;
+  padding: 36px 30px 22px 38px;
+  margin: 0 0 44px 62px;
+  border-radius: 18px 0 22px 22px;
+  box-shadow: 0 6px 32px 0 rgba(0,40,85,0.12);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  min-height: 225px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+}
+
+/* Decorative quote icon as blue circle overlapping upper left */
+.carousel .carousel-slide .carousel-slide-content::before {
+  content: "";
+  position: absolute;
+  top: -22px;
+  left: -22px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #eaf3fb;
+  border: 3px solid #bbd5ed;
+  z-index: 3;
+  display: block;
+}
+
+/* Quote text styling */
+.carousel .carousel-slide .carousel-slide-content > h3 {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'proxima-nova-condensed', Arial, sans-serif;
+  color: #fff;
+  margin: 0 0 32px 0;
+  line-height: 1.58;
+  min-height: 54px;
+  letter-spacing: 0;
+}
+
+/* Attribution section (simulated as a flex row for future photo support) */
+.carousel .carousel-slide .carousel-slide-content .carousel-attribution {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+.carousel .carousel-slide .carousel-slide-content .carousel-attribution-photo {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #d0e3f7;
+  border: 2px solid #fff;
+  object-fit: cover;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.carousel .carousel-slide .carousel-slide-content .carousel-attribution-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+}
+
+.carousel .carousel-slide .carousel-slide-content .carousel-attribution-text strong {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.01em;
+}
+
+.carousel .carousel-slide .carousel-slide-content .carousel-attribution-text span {
+  font-size: 12px;
+  font-weight: 400;
+  color: #cbe0f6;
+}
+
+/* Attribution fallback if no image present */
+.carousel .carousel-slide .carousel-slide-content > p {
+  font-size: 13.5px;
+  font-weight: 400;
+  margin: 0 0 0 0;
+  color: #f7fafd;
+  line-height: 1.38;
+}
+
+.carousel .carousel-slide .carousel-slide-content > p > strong {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #fff;
+  margin-right: 6px;
+}
+
+/* Hide navigation arrows */
+.carousel .carousel-navigation-buttons {
+  display: none;
+}
+
+/* Indicators as short blue bars, bottom-left just under the card */
+.carousel .carousel-slide-indicators {
+  position: absolute;
+  left: 74px;
+  bottom: 22px;
+  transform: none;
+  background: none;
+  padding: 0;
+  justify-content: flex-start;
+  gap: 0 10px;
+  z-index: 1;
+}
+
+.carousel .carousel-slide-indicator button {
+  width: 14px;
+  height: 3px;
+  border-radius: 2px;
+  background: #7ea4c9;
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  display: block;
+  transition: background 0.2s;
+}
+
+.carousel .carousel-slide-indicator button:disabled,
+.carousel .carousel-slide-indicator button[aria-current="true"] {
+  background: #002855;
+}
+
+/* Responsive: move card and indicators for mobile */
+@media (max-width: 700px) {
+  .carousel .carousel-slide .carousel-slide-content {
+    max-width: 96vw;
+    min-width: 0;
+    margin: 0 0 14vw 3vw;
+    padding: 18px 8px 10px 12px;
+    bottom: 0;
+    left: 0;
+  }
+  .carousel .carousel-slide-indicators {
+    left: 16px;
+    bottom: 6px;
+  }
+  .carousel .carousel-slide .carousel-slide-content::before {
+    top: -7px;
+    left: -7px;
+    width: 22px;
+    height: 22px;
   }
 }
