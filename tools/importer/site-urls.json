@@ -1,0 +1,23 @@
+{
+  "originUrl": "https://www.wheatleyvodka.com",
+  "urls": [
+    {
+      "url": "https://www.wheatleyvodka.com",
+      "source": "MANUAL",
+      "targetPath": "/",
+      "id": "aa6cc1b640bd44cdb52406c6ba583b67c2754b16"
+    },
+    {
+      "url": "https://www.wheatleyvodka.com/about-wheatley",
+      "source": "MANUAL",
+      "targetPath": "/about-wheatley",
+      "id": "4e8d6504f2b86a65e10fba858b4e0ea3bc485dcb"
+    }
+  ],
+  "crawlOptions": {
+    "strategy": "manual",
+    "strategiesAttempted": [
+      "MANUAL"
+    ]
+  }
+}
