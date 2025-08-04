@@ -1,0 +1,669 @@
+{
+  "fragments": [
+    {
+      "name": "nav",
+      "path": "/nav",
+      "totalBoxes": 1,
+      "instances": [
+        {
+          "url": "https://www.wheatleyvodka.com/about-wheatley",
+          "urlHash": "4e8d6504f2b86a65e10fba858b4e0ea3bc485dcb",
+          "uuid": "4e8d6504-00-b2c8ec8cc7206114599cd049698cc67e0e048d63",
+          "xpath": "/html[1]/body[1]/header[1]",
+          "differences": [
+            {
+              "element_id": "html__body__header",
+              "differences": [
+                {
+                  "change_type": "deletion",
+                  "text": "Menu Learn About Wheatley Cocktails Locator"
+                }
+              ],
+              "dissimilarity_score": 1.0
+            },
+            {
+              "element_id": "html__body__header",
+              "differences": [
+                {
+                  "change_type": "deletion",
+                  "text": "Menu Learn About Wheatley Cocktails Locator"
+                }
+              ],
+              "dissimilarity_score": 1.0
+            }
+          ],
+          "similarity_score": 0.0
+        },
+        {
+          "url": "https://www.wheatleyvodka.com",
+          "urlHash": "aa6cc1b640bd44cdb52406c6ba583b67c2754b16",
+          "uuid": "aa6cc1b6-00-b2c8ec8cc7206114599cd049698cc67e0e048d63",
+          "xpath": "/html[1]/body[1]/header[1]"
+        }
+      ],
+      "styles": {
+        "height": 143
+      }
+    },
+    {
+      "name": "footer",
+      "path": "/footer",
+      "totalBoxes": 1,
+      "instances": [
+        {
+          "url": "https://www.wheatleyvodka.com/about-wheatley",
+          "urlHash": "4e8d6504f2b86a65e10fba858b4e0ea3bc485dcb",
+          "uuid": "4e8d6504-13-a507e040135207256fc0c4fd07f12510b5a9e729",
+          "xpath": "/html[1]/body[1]/footer[1]",
+          "differences": [
+            {
+              "element_id": "html__body__footer",
+              "differences": [
+                {
+                  "change_type": "equal",
+                  "text": "DRINK WHEATLEY VODKA RESPONSIBLY \u00a92023 WHEATLEY VODKA, 41% ALC/VOL (82 PROOF), PRODUCED AND BOTTLED BY SAZERAC CO., LOUISVILLE, KY. Privacy Policy \u00b7 Terms of Use \u00b7 Human Rights Policy \u00b7 Accessibility Policy \u00b7 CA Privacy Notice"
+                }
+              ],
+              "dissimilarity_score": 0.0
+            }
+          ],
+          "similarity_score": 0.0
+        },
+        {
+          "url": "https://www.wheatleyvodka.com",
+          "urlHash": "aa6cc1b640bd44cdb52406c6ba583b67c2754b16",
+          "uuid": "aa6cc1b6-11-a507e040135207256fc0c4fd07f12510b5a9e729",
+          "xpath": "/html[1]/body[1]/footer[1]"
+        }
+      ],
+      "styles": {
+        "background": "rgba(0, 0, 0, 0) url(\"https://www.wheatleyvodka.com/media_1702b8b19fe5b7dbded179ab832dcb32b1b3005ba.png?width=2000&format=webply&optimize=medium\") repeat scroll 0% 0% / cover padding-box border-box"
+      }
+    }
+  ],
+  "blocks": [
+    {
+      "name": "header",
+      "cluster": 1,
+      "source": "Header",
+      "target": "Header (header1)",
+      "key": "header1",
+      "instances": [
+        {
+          "url": "https://www.wheatleyvodka.com",
+          "urlHash": "aa6cc1b640bd44cdb52406c6ba583b67c2754b16",
+          "uuid": "aa6cc1b6-00-b2c8ec8cc7206114599cd049698cc67e0e048d63",
+          "xpath": "/html[1]/body[1]/header[1]"
+        }
+      ]
+    },
+    {
+      "name": "Hero",
+      "cluster": 2,
+      "source": "Hero",
+      "target": "Hero (hero2)",
+      "key": "hero2",
+      "instances": [
+        {
+          "url": "https://www.wheatleyvodka.com",
+          "urlHash": "aa6cc1b640bd44cdb52406c6ba583b67c2754b16",
+          "uuid": "aa6cc1b6-02-3ab9b21ef6cb3a018359b9f0daf1c63ecf73c7c1",
+          "xpath": "/html[1]/body[1]/main[1]/div[2]",
+          "section": "section-4"
+        }
+      ]
+    },
+    {
+      "name": "Hero",
+      "cluster": 3,
+      "source": "Hero",
+      "target": "Hero (hero3)",
+      "key": "hero3",
+      "instances": [
+        {
+          "url": "https://www.wheatleyvodka.com",
+          "urlHash": "aa6cc1b640bd44cdb52406c6ba583b67c2754b16",
+          "uuid": "aa6cc1b6-03-28b4d3c63d2ccd41cb54740341e225ebae6698c5",
+          "xpath": "/html[1]/body[1]/main[1]/div[3]"
+        }
+      ]
+    },
+    {
+      "name": "Hero",
+      "cluster": 4,
+      "source": "Hero",
+      "target": "Hero (hero4)",
+      "key": "hero4",
+      "instances": [
+        {
+          "url": "https://www.wheatleyvodka.com",
+          "urlHash": "aa6cc1b640bd44cdb52406c6ba583b67c2754b16",
+          "uuid": "aa6cc1b6-04-ac18c7f4ff0dda41caddc17273e87ac35c820487",
+          "xpath": "/html[1]/body[1]/main[1]/div[4]"
+        }
+      ]
+    },
+    {
+      "name": "Cards",
+      "cluster": 5,
+      "source": "Cards",
+      "target": "Cards",
+      "key": "cards5",
+      "instances": [
+        {
+          "url": "https://www.wheatleyvodka.com",
+          "urlHash": "aa6cc1b640bd44cdb52406c6ba583b67c2754b16",
+          "uuid": "aa6cc1b6-05-d70c6e6ca8d70ee1f6c77e1030748587e67c4882",
+          "xpath": "/html[1]/body[1]/main[1]/div[5]"
+        }
+      ]
+    },
+    {
+      "name": "Columns",
+      "cluster": 6,
+      "source": "Columns",
+      "target": "Columns (columns6)",
+      "key": "columns6",
+      "instances": [
+        {
+          "url": "https://www.wheatleyvodka.com",
+          "urlHash": "aa6cc1b640bd44cdb52406c6ba583b67c2754b16",
+          "uuid": "aa6cc1b6-07-8adc313ebabc6c1bda45a5240cb1d81ddf7d54f5",
+          "xpath": "/html[1]/body[1]/main[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]",
+          "section": "section-5"
+        }
+      ]
+    },
+    {
+      "name": "header",
+      "cluster": 7,
+      "source": "Header",
+      "target": "Header (header7)",
+      "key": "header7",
+      "instances": [
+        {
+          "url": "https://www.wheatleyvodka.com/about-wheatley",
+          "urlHash": "4e8d6504f2b86a65e10fba858b4e0ea3bc485dcb",
+          "uuid": "4e8d6504-00-b2c8ec8cc7206114599cd049698cc67e0e048d63",
+          "xpath": "/html[1]/body[1]/header[1]",
+          "differences": [
+            {
+              "element_id": "html__body__header",
+              "differences": [
+                {
+                  "change_type": "deletion",
+                  "text": "Menu Learn About Wheatley Cocktails Locator"
+                }
+              ],
+              "dissimilarity_score": 1.0
+            },
+            {
+              "element_id": "html__body__header",
+              "differences": [
+                {
+                  "change_type": "deletion",
+                  "text": "Menu Learn About Wheatley Cocktails Locator"
+                }
+              ],
+              "dissimilarity_score": 1.0
+            }
+          ],
+          "similarity_score": 0.0
+        }
+      ]
+    },
+    {
+      "name": "Columns",
+      "cluster": 8,
+      "source": "Columns",
+      "target": "Columns (columns8)",
+      "key": "columns8",
+      "instances": [
+        {
+          "url": "https://www.wheatleyvodka.com/about-wheatley",
+          "urlHash": "4e8d6504f2b86a65e10fba858b4e0ea3bc485dcb",
+          "uuid": "4e8d6504-04-28b4d3c63d2ccd41cb54740341e225ebae6698c5",
+          "xpath": "/html[1]/body[1]/main[1]/div[3]",
+          "differences": [
+            {
+              "element_id": "html__body__main__div_3",
+              "differences": [
+                {
+                  "change_type": "equal",
+                  "text": "Straight from the source When a Master Distiller puts his name on a vodka, it means something. Harlen knows what it takes to craft an award-winning spirit and that\u2019s just what he\u2019s done with Wheatley Vodka. Here\u2019s a little insight into how and why he did it."
+                }
+              ],
+              "dissimilarity_score": -0.0
+            }
+          ],
+          "similarity_score": 0.0
+        }
+      ]
+    },
+    {
+      "name": "Tabs",
+      "cluster": 9,
+      "source": "Tabs",
+      "target": "Tabs",
+      "key": "tabs9",
+      "instances": [
+        {
+          "url": "https://www.wheatleyvodka.com/about-wheatley",
+          "urlHash": "4e8d6504f2b86a65e10fba858b4e0ea3bc485dcb",
+          "uuid": "4e8d6504-05-ac18c7f4ff0dda41caddc17273e87ac35c820487",
+          "xpath": "/html[1]/body[1]/main[1]/div[4]",
+          "differences": [
+            {
+              "element_id": "html__body__main__div_4",
+              "differences": [
+                {
+                  "change_type": "equal",
+                  "text": "Why limestone water? "
+                },
+                {
+                  "change_type": "insertion",
+                  "text": "Why 10 times distilled? Why wheat? Why 82 proof? "
+                },
+                {
+                  "change_type": "equal",
+                  "text": "The water in this area is filtered through limestone. It really does two things: it filters out things like iron and adds things like magnesium and calcium. Those two things combined are perfect for distilling. A good, clean, fresh water is just as important as the vodka itself. "
+                },
+                {
+                  "change_type": "deletion",
+                  "text": "Why 10 times distilled? "
+                },
+                {
+                  "change_type": "equal",
+                  "text": "Each time you distill it, you\u2019re mellowing out that vodka. What really sets us apart is the fact that we\u2019re marrying a seven-times distilled wheat recipe with another seven-times distilled grain recipe and then distilling it three more times. So for us, we felt like 10 times distilled was just right for the craft style vodka we\u2019re going for. "
+                },
+                {
+                  "change_type": "deletion",
+                  "text": "Why wheat? "
+                },
+                {
+                  "change_type": "equal",
+                  "text": "One of the things that we learned through distilling wheated bourbons is we know what that adds to the flavor of the distillate. It\u2019s a good ingredient to give it that soft, delicate finish that we like in a craft vodka. We use the same red winter wheat grain that we use for all the Weller and Pappy Van Winkle bourbons. "
+                },
+                {
+                  "change_type": "deletion",
+                  "text": "Why 82 proof? "
+                },
+                {
+                  "change_type": "equal",
+                  "text": "We know when bartenders are making cocktails, they want that spirit to show through. It\u2019s easier to do with an 82 proof and it allows you to showcase that flavor a little more"
+                },
+                {
+                  "change_type": "deletion",
+                  "text": ". The water in this area is filtered through limestone. It really does two things: it filters out things like iron and adds things like magnesium and calcium. Those two things combined are perfect for distilling. A good, clean, fresh water is just as important as the vodka itself"
+                },
+                {
+                  "change_type": "equal",
+                  "text": "."
+                }
+              ],
+              "dissimilarity_score": 0.02
+            }
+          ],
+          "similarity_score": 0.98
+        }
+      ]
+    },
+    {
+      "name": "unknown",
+      "cluster": 10,
+      "instances": [
+        {
+          "url": "https://www.wheatleyvodka.com/about-wheatley",
+          "urlHash": "4e8d6504f2b86a65e10fba858b4e0ea3bc485dcb",
+          "uuid": "4e8d6504-07-ae2bdf034519b8b4db063a10ec4a1b53e6e33779",
+          "xpath": "/html[1]/body[1]/main[1]/div[6]"
+        }
+      ]
+    },
+    {
+      "name": "Carousel",
+      "cluster": 11,
+      "source": "Carousel",
+      "target": "Carousel",
+      "key": "carousel11",
+      "instances": [
+        {
+          "url": "https://www.wheatleyvodka.com/about-wheatley",
+          "urlHash": "4e8d6504f2b86a65e10fba858b4e0ea3bc485dcb",
+          "uuid": "4e8d6504-08-ac2e8bbd7c8831a5258ff52117328fd77c4de5bd",
+          "xpath": "/html[1]/body[1]/main[1]/div[7]",
+          "differences": [
+            {
+              "element_id": "html__body__main__div_7",
+              "differences": [
+                {
+                  "change_type": "equal",
+                  "text": "Wheatley provides a really nice base. It\u2019s got nice delicate vanilla notes on it. It actually has some flavor, where in most vodka all you can taste is the alcohol. Greg Galganski Proof on Main I choose to use Wheatley Vodka in my cocktails because it is the best made vodka on the market today in its price category. As most people know, Buffalo Trace produces the finest bourbons on the planet. They use the same quality ingredients to make this vodka, which is distilled a ridiculous ten times. Jason Curtsinger Belles Cocktail House It\u2019s not intimidating, it\u2019s not overpowering, it\u2019s just well rounded. I think with the wheat in the vodka it just softens it, but doesn\u2019t lose the quality or strength of the liquor. I\u2019ve had it in every vodka cocktail since we\u2019ve opened. Matthew Wesolik Clever Rabbit"
+                }
+              ],
+              "dissimilarity_score": 0.0
+            }
+          ],
+          "similarity_score": 0.0
+        }
+      ]
+    },
+    {
+      "name": "Accordion",
+      "cluster": 12,
+      "source": "Accordion",
+      "target": "Accordion",
+      "key": "accordion12",
+      "instances": [
+        {
+          "url": "https://www.wheatleyvodka.com/about-wheatley",
+          "urlHash": "4e8d6504f2b86a65e10fba858b4e0ea3bc485dcb",
+          "uuid": "4e8d6504-10-b2b8660487a53370f7e8af4f9819f3e133c3896f",
+          "xpath": "/html[1]/body[1]/main[1]/div[8]/div[2]",
+          "differences": [
+            {
+              "element_id": "html__body__main__div_8__div_2",
+              "differences": [
+                {
+                  "change_type": "equal",
+                  "text": "Why are some vodkas distilled more than once? According to Master Distiller Harlen Wheatley, \"Each time you distill it, you\u2019re mellowing out that vodka. We think it should be a smooth, nice, clean finish, and every time you distill it, it adds to that.\" How many times is Wheatley Vodka distilled and why? Wheatley Vodka is distilled ten times. Why? Because it didn\u2019t taste perfect until that tenth distillation. The ten-time distillation gives Wheatley a smooth taste and a clean finish. What\u2019s the difference in distilling vodka in a pot still versus a columnar still? Besides the shape of the stills \u2013 a pot still looks like a large jug or bottle, while a columnar still looks like a tall pipe or pipes \u2013 the main difference is typically the heating method used to cook the mash. While steam can be used in pot stills, columnar stills are typically built to use steam and not traditional methods (like fire) that can burn the mash. The result is often a purer distillate, free of impurities. Pot stills, however, can contain more flavor and aroma-producing congeners, producing different tastes and smells within the spirit. Columnar stills are also capable of continuous distillation, meaning more volume can be produced over time. Pot stills must be cleaned and refilled after every batch. What is a craft distillery? While there is no legal or universally accepted definition of a craft distillery, it is generally accepted to be a spirits distillery that produces smaller, more finely-managed spirits. Craft distilleries often produce small batches of product, but may also produce spirits in smaller stills, with very specific and special ingredients or even with specially-sourced grains or other recipe items. At Wheatley Vodka, we define a craft distillery as one where every detail is watched over with personal pride and caretaking by the master distiller \u2013 in our case, that\u2019s our vodka\u2019s namesake, Harlen Wheatley. What types of ingredients go into a good vodka? Vodka can be made from any fermented food item that contains sugar or starch. That substance is fed to yeast which produces alcohol, which is then distilled to produce the spirit. \u201cGood\u201d vodka is often up to the drinker, but centuries of vodka-making show that vodka that\u2019s distilled multiple times to rid the distillate of impurities tends to produce a cleaner spirit that\u2019s better for drinking or mixing. Why do some vodka brands distill their spirits in small batches? \"Small batch\" vodka typically implies any vodka made with a degree of high quality in mind. The term is meant to communicate that great care is taken with the production of the vodka, often sampled and tested in smaller increments than mass-produced spirits to ensure product quality. Isn\u2019t vodka just distilled from potatoes? Not necessarily! Vodka can be made from a variety of different vegetables and grains, including (but not limited to) potatoes. Vodkas are made from everything from beets to barley, and Wheatley is made from wheat with a blend of other grains added to it. What does it mean when a vodka is distilled? Distilling is the process of concentrating the alcohol in a spirit through heating and condensation. Different distilleries use different methods to distill their vodka, but it all comes back to the same basic process. In addition to concentrating the spirit, distillation also removes impurities and smooths out the flavors in the vodka. Is all vodka the same? Absolutely not. Vodka can be made from many different base materials and manufacturers have many different distilling processes, so there\u2019s a lot of room for variation. And since vodka doesn\u2019t have any flavors, colors or aging, there\u2019s nowhere for the character of the spirit to hide. Quality will always stand out. Doesn\u2019t vodka have to be distilled in Russia? No. While vodka originated in Russia and Poland, it does not have to be made in Russia to be called vodka. In fact, some of the best vodkas in the world are made in the United States. Does distilling the vodka more make it better? It depends on the flavor you\u2019re looking for. A certain number of rounds of distillation are important to create a clean, concentrated vodka; beyond that, it\u2019s all about achieving a certain flavor and finish. Distilling it too many times will remove any and all character that the grain provides \u2013 it\u2019s about finding the right balance. What\u2019s the difference between corn and wheat-based vodka? While the finished spirit won\u2019t taste like corn or wheat, there are distinct differences between vodkas made from different grains. Wheat-based vodka tends to have a softer and more delicate character thanks to the qualities of wheat, while corn-based vodka can be sharper due to the sugar content of corn."
+                }
+              ],
+              "dissimilarity_score": -0.0
+            }
+          ],
+          "similarity_score": 0.0
+        }
+      ]
+    },
+    {
+      "name": "Cards (no images)",
+      "cluster": 13,
+      "source": "Cards",
+      "target": "Cards",
+      "key": "cardsNoImages13",
+      "instances": [
+        {
+          "url": "https://www.wheatleyvodka.com/about-wheatley",
+          "urlHash": "4e8d6504f2b86a65e10fba858b4e0ea3bc485dcb",
+          "uuid": "4e8d6504-12-87247b0a926f58c4c756e00fdb40e930a8d33d5a",
+          "xpath": "/html[1]/body[1]/main[1]/div[9]/div[2]",
+          "differences": [
+            {
+              "element_id": "html__body__main__div_9__div_2",
+              "differences": [
+                {
+                  "change_type": "deletion",
+                  "text": "1 "
+                },
+                {
+                  "change_type": "equal",
+                  "text": "Choose the base Vodka can be made from a wide variety of vegetables and grains, with options ranging from beets to barley, and many use a combination. Wheatley Vodka is made from red winter wheat along with other grains. "
+                },
+                {
+                  "change_type": "deletion",
+                  "text": "2 "
+                },
+                {
+                  "change_type": "equal",
+                  "text": "Prepare the mash The grains or vegetables are broken down and heated to sterilize the mash and begin the process of converting the starches into sugars. "
+                },
+                {
+                  "change_type": "deletion",
+                  "text": "3 "
+                },
+                {
+                  "change_type": "equal",
+                  "text": "Ferment the mash Yeast is added to the mash. Over the next several days, enzymes in the yeast convert the sugars in the mash into alcohol. "
+                },
+                {
+                  "change_type": "deletion",
+                  "text": "4 "
+                },
+                {
+                  "change_type": "equal",
+                  "text": "Distill, distill, distill The liquid alcohol produced during fermentation is pumped into stills and heated. The vapors from the alcohol are released and condense in the still. The process is repeated over and over, removing impurities and concentrating the spirit. The smooth, soft taste of Wheatley Vodka is achieved after ten rounds of distillation. "
+                },
+                {
+                  "change_type": "deletion",
+                  "text": "5 "
+                },
+                {
+                  "change_type": "equal",
+                  "text": "Add water Water is added to the concentrated spirit to bring the vodka down to its final proof. Vodkas can range from a standard 80 proof (40% alcohol by volume) to a staggering 176 proof (88% alcohol by volume). "
+                },
+                {
+                  "change_type": "deletion",
+                  "text": "6 "
+                },
+                {
+                  "change_type": "equal",
+                  "text": "Bottle and ship Once the final proof is achieved, the vodka is bottled, sealed and distributed."
+                }
+              ],
+              "dissimilarity_score": 0.0
+            }
+          ],
+          "similarity_score": 0.0
+        }
+      ]
+    },
+    {
+      "name": "unknown",
+      "cluster": 14,
+      "instances": [
+        {
+          "url": "https://www.wheatleyvodka.com/about-wheatley",
+          "urlHash": "4e8d6504f2b86a65e10fba858b4e0ea3bc485dcb",
+          "uuid": "4e8d6504-13-a507e040135207256fc0c4fd07f12510b5a9e729",
+          "xpath": "/html[1]/body[1]/footer[1]",
+          "section": "section-3",
+          "differences": [
+            {
+              "element_id": "html__body__footer",
+              "differences": [
+                {
+                  "change_type": "equal",
+                  "text": "DRINK WHEATLEY VODKA RESPONSIBLY \u00a92023 WHEATLEY VODKA, 41% ALC/VOL (82 PROOF), PRODUCED AND BOTTLED BY SAZERAC CO., LOUISVILLE, KY. Privacy Policy \u00b7 Terms of Use \u00b7 Human Rights Policy \u00b7 Accessibility Policy \u00b7 CA Privacy Notice"
+                }
+              ],
+              "dissimilarity_score": 0.0
+            }
+          ],
+          "similarity_score": 0.0
+        },
+        {
+          "url": "https://www.wheatleyvodka.com",
+          "urlHash": "aa6cc1b640bd44cdb52406c6ba583b67c2754b16",
+          "uuid": "aa6cc1b6-11-a507e040135207256fc0c4fd07f12510b5a9e729",
+          "xpath": "/html[1]/body[1]/footer[1]",
+          "section": "section-3"
+        }
+      ]
+    }
+  ],
+  "outliers": [
+    {
+      "url": "https://www.wheatleyvodka.com/about-wheatley",
+      "urlHash": "4e8d6504f2b86a65e10fba858b4e0ea3bc485dcb",
+      "uuid": "4e8d6504-01-85cd4579b6f7e6d4726df9bd07408d48a8a21634",
+      "xpath": "/html[1]/body[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
+      "section": "section-1"
+    },
+    {
+      "url": "https://www.wheatleyvodka.com/about-wheatley",
+      "urlHash": "4e8d6504f2b86a65e10fba858b4e0ea3bc485dcb",
+      "uuid": "4e8d6504-02-8cdf091a50d8a29688208f1a49c3aa0874e36321",
+      "xpath": "/html[1]/body[1]/main[1]/div[2]/div[1]"
+    },
+    {
+      "url": "https://www.wheatleyvodka.com/about-wheatley",
+      "urlHash": "4e8d6504f2b86a65e10fba858b4e0ea3bc485dcb",
+      "uuid": "4e8d6504-03-99dc8a8b2553cde3508ccad1a31df14de03023be",
+      "xpath": "/html[1]/body[1]/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]",
+      "section": "section-2"
+    },
+    {
+      "url": "https://www.wheatleyvodka.com/about-wheatley",
+      "urlHash": "4e8d6504f2b86a65e10fba858b4e0ea3bc485dcb",
+      "uuid": "4e8d6504-06-d70c6e6ca8d70ee1f6c77e1030748587e67c4882",
+      "xpath": "/html[1]/body[1]/main[1]/div[5]"
+    },
+    {
+      "url": "https://www.wheatleyvodka.com/about-wheatley",
+      "urlHash": "4e8d6504f2b86a65e10fba858b4e0ea3bc485dcb",
+      "uuid": "4e8d6504-09-a0dd705f6dfee2399534386e0711618deb921c62",
+      "xpath": "/html[1]/body[1]/main[1]/div[8]/div[1]"
+    },
+    {
+      "url": "https://www.wheatleyvodka.com/about-wheatley",
+      "urlHash": "4e8d6504f2b86a65e10fba858b4e0ea3bc485dcb",
+      "uuid": "4e8d6504-11-b6db2d625a27be57d05961cdffa41b50e42bfa7f",
+      "xpath": "/html[1]/body[1]/main[1]/div[9]/div[1]"
+    },
+    {
+      "url": "https://www.wheatleyvodka.com",
+      "urlHash": "aa6cc1b640bd44cdb52406c6ba583b67c2754b16",
+      "uuid": "aa6cc1b6-01-85cd4579b6f7e6d4726df9bd07408d48a8a21634",
+      "xpath": "/html[1]/body[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
+      "section": "section-1"
+    },
+    {
+      "url": "https://www.wheatleyvodka.com",
+      "urlHash": "aa6cc1b640bd44cdb52406c6ba583b67c2754b16",
+      "uuid": "aa6cc1b6-06-3658de01c084ddee99108209b5555d00083df6f8",
+      "xpath": "/html[1]/body[1]/main[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]",
+      "section": "section-5"
+    },
+    {
+      "url": "https://www.wheatleyvodka.com",
+      "urlHash": "aa6cc1b640bd44cdb52406c6ba583b67c2754b16",
+      "uuid": "aa6cc1b6-08-d700f4bd97979bfe59f7923d6a9f5515b112b6d5",
+      "xpath": "/html[1]/body[1]/main[1]/div[6]/div[1]/div[1]/div[1]/div[2]/picture[1]"
+    },
+    {
+      "url": "https://www.wheatleyvodka.com",
+      "urlHash": "aa6cc1b640bd44cdb52406c6ba583b67c2754b16",
+      "uuid": "aa6cc1b6-09-ac2e8bbd7c8831a5258ff52117328fd77c4de5bd",
+      "xpath": "/html[1]/body[1]/main[1]/div[7]"
+    },
+    {
+      "url": "https://www.wheatleyvodka.com",
+      "urlHash": "aa6cc1b640bd44cdb52406c6ba583b67c2754b16",
+      "uuid": "aa6cc1b6-10-2b424cbada03ff8eb2269d0cf189079d961d2f2c",
+      "xpath": "/html[1]/body[1]/main[1]/div[8]"
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.wheatleyvodka.com/about-wheatley",
+      "differences": [
+        {
+          "change_type": "deletion",
+          "text": "Menu "
+        },
+        {
+          "change_type": "equal",
+          "text": "Learn About Wheatley Cocktails Locator"
+        },
+        {
+          "change_type": "insertion",
+          "text": " Menu"
+        },
+        {
+          "change_type": "equal",
+          "text": " Are you over 21? Yes No Please come back when you are legal drinking age. We're sorry, but you are not of legal drinking age and cannot enter this site. You are now being redirected to www.responsibility.org . About Wheatley Distilling Wheatley Vodka Wheatley craft vodka comes from the world\u2019s most award-winning distillery, backed by 200 years of distilling experience. Buffalo Trace Distillery is known for its legendary bourbons like Pappy Van Winkle, Weller, E.H. Taylor, and Blanton\u2019s, but the Distillery has a long history of crafting other spirits, including vodka. VODKA DISTILLING AT BUFFALO TRACE Master Distiller Harlen Wheatley has been a driving force behind the Distillery\u2019s quest to create a premium craft vodka. Some years ago, he decided to embark on a project to craft the perfect vodka. Through the commitment and meticulous craftsmanship of a dedicated team, one of the Distillery\u2019s first and finest vodkas, HDW CLIX, came to fruition. CLIX, or 159 in Roman numerals, represents the 159 separate distillations that were required to produce this ultra-fine spirit. Following CLIX, Harlen set out to create the craft vodka that would bear his name. Made with the same red winter wheat and limestone water that the Distillery uses in its award-winning bourbons, Wheatley Vodka is crafted in small batches and distilled ten times over. The result, according to Harlen Wheatley himself, is \u201chow vodka is supposed to taste.\u201d Straight from the source When a Master Distiller puts his name on a vodka, it means something. Harlen knows what it takes to craft an award-winning spirit and that\u2019s just what he\u2019s done with Wheatley Vodka. Here\u2019s a little insight into how and why he did it. Why limestone water? "
+        },
+        {
+          "change_type": "insertion",
+          "text": "Why 10 times distilled? Why wheat? Why 82 proof? "
+        },
+        {
+          "change_type": "equal",
+          "text": "The water in this area is filtered through limestone. It really does two things: it filters out things like iron and adds things like magnesium and calcium. Those two things combined are perfect for distilling. A good, clean, fresh water is just as important as the vodka itself. "
+        },
+        {
+          "change_type": "deletion",
+          "text": "Why 10 times distilled? "
+        },
+        {
+          "change_type": "equal",
+          "text": "Each time you distill it, you\u2019re mellowing out that vodka. What really sets us apart is the fact that we\u2019re marrying a seven-times distilled wheat recipe with another seven-times distilled grain recipe and then distilling it three more times. So for us, we felt like 10 times distilled was just right for the craft style vodka we\u2019re going for. "
+        },
+        {
+          "change_type": "deletion",
+          "text": "Why wheat? "
+        },
+        {
+          "change_type": "equal",
+          "text": "One of the things that we learned through distilling wheated bourbons is we know what that adds to the flavor of the distillate. It\u2019s a good ingredient to give it that soft, delicate finish that we like in a craft vodka. We use the same red winter wheat grain that we use for all the Weller and Pappy Van Winkle bourbons. "
+        },
+        {
+          "change_type": "deletion",
+          "text": "Why 82 proof? "
+        },
+        {
+          "change_type": "equal",
+          "text": "We know when bartenders are making cocktails, they want that spirit to show through. It\u2019s easier to do with an 82 proof and it allows you to showcase that flavor a little more"
+        },
+        {
+          "change_type": "deletion",
+          "text": ". The water in this area is filtered through limestone. It really does two things: it filters out things like iron and adds things like magnesium and calcium. Those two things combined are perfect for distilling. A good, clean, fresh water is just as important as the vodka itself"
+        },
+        {
+          "change_type": "equal",
+          "text": ". We know what it does each time, each distillation, and we felt like the ten times was just right for it. Wheatley provides a really nice base. It\u2019s got nice delicate vanilla notes on it. It actually has some flavor, where in most vodka all you can taste is the alcohol. Greg Galganski Proof on Main I choose to use Wheatley Vodka in my cocktails because it is the best made vodka on the market today in its price category. As most people know, Buffalo Trace produces the finest bourbons on the planet. They use the same quality ingredients to make this vodka, which is distilled a ridiculous ten times. Jason Curtsinger Belles Cocktail House It\u2019s not intimidating, it\u2019s not overpowering, it\u2019s just well rounded. I think with the wheat in the vodka it just softens it, but doesn\u2019t lose the quality or strength of the liquor. I\u2019ve had it in every vodka cocktail since we\u2019ve opened. Matthew Wesolik Clever Rabbit FAQs Why are some vodkas distilled more than once? According to Master Distiller Harlen Wheatley, \"Each time you distill it, you\u2019re mellowing out that vodka. We think it should be a smooth, nice, clean finish, and every time you distill it, it adds to that.\" How many times is Wheatley Vodka distilled and why? Wheatley Vodka is distilled ten times. Why? Because it didn\u2019t taste perfect until that tenth distillation. The ten-time distillation gives Wheatley a smooth taste and a clean finish. What\u2019s the difference in distilling vodka in a pot still versus a columnar still? Besides the shape of the stills \u2013 a pot still looks like a large jug or bottle, while a columnar still looks like a tall pipe or pipes \u2013 the main difference is typically the heating method used to cook the mash. While steam can be used in pot stills, columnar stills are typically built to use steam and not traditional methods (like fire) that can burn the mash. The result is often a purer distillate, free of impurities. Pot stills, however, can contain more flavor and aroma-producing congeners, producing different tastes and smells within the spirit. Columnar stills are also capable of continuous distillation, meaning more volume can be produced over time. Pot stills must be cleaned and refilled after every batch. What is a craft distillery? While there is no legal or universally accepted definition of a craft distillery, it is generally accepted to be a spirits distillery that produces smaller, more finely-managed spirits. Craft distilleries often produce small batches of product, but may also produce spirits in smaller stills, with very specific and special ingredients or even with specially-sourced grains or other recipe items. At Wheatley Vodka, we define a craft distillery as one where every detail is watched over with personal pride and caretaking by the master distiller \u2013 in our case, that\u2019s our vodka\u2019s namesake, Harlen Wheatley. What types of ingredients go into a good vodka? Vodka can be made from any fermented food item that contains sugar or starch. That substance is fed to yeast which produces alcohol, which is then distilled to produce the spirit. \u201cGood\u201d vodka is often up to the drinker, but centuries of vodka-making show that vodka that\u2019s distilled multiple times to rid the distillate of impurities tends to produce a cleaner spirit that\u2019s better for drinking or mixing. Why do some vodka brands distill their spirits in small batches? \"Small batch\" vodka typically implies any vodka made with a degree of high quality in mind. The term is meant to communicate that great care is taken with the production of the vodka, often sampled and tested in smaller increments than mass-produced spirits to ensure product quality. Isn\u2019t vodka just distilled from potatoes? Not necessarily! Vodka can be made from a variety of different vegetables and grains, including (but not limited to) potatoes. Vodkas are made from everything from beets to barley, and Wheatley is made from wheat with a blend of other grains added to it. What does it mean when a vodka is distilled? Distilling is the process of concentrating the alcohol in a spirit through heating and condensation. Different distilleries use different methods to distill their vodka, but it all comes back to the same basic process. In addition to concentrating the spirit, distillation also removes impurities and smooths out the flavors in the vodka. Is all vodka the same? Absolutely not. Vodka can be made from many different base materials and manufacturers have many different distilling processes, so there\u2019s a lot of room for variation. And since vodka doesn\u2019t have any flavors, colors or aging, there\u2019s nowhere for the character of the spirit to hide. Quality will always stand out. Doesn\u2019t vodka have to be distilled in Russia? No. While vodka originated in Russia and Poland, it does not have to be made in Russia to be called vodka. In fact, some of the best vodkas in the world are made in the United States. Does distilling the vodka more make it better? It depends on the flavor you\u2019re looking for. A certain number of rounds of distillation are important to create a clean, concentrated vodka; beyond that, it\u2019s all about achieving a certain flavor and finish. Distilling it too many times will remove any and all character that the grain provides \u2013 it\u2019s about finding the right balance. What\u2019s the difference between corn and wheat-based vodka? While the finished spirit won\u2019t taste like corn or wheat, there are distinct differences between vodkas made from different grains. Wheat-based vodka tends to have a softer and more delicate character thanks to the qualities of wheat, while corn-based vodka can be sharper due to the sugar content of corn. How is Vodka Made? "
+        },
+        {
+          "change_type": "deletion",
+          "text": "1 "
+        },
+        {
+          "change_type": "equal",
+          "text": "Choose the base Vodka can be made from a wide variety of vegetables and grains, with options ranging from beets to barley, and many use a combination. Wheatley Vodka is made from red winter wheat along with other grains. "
+        },
+        {
+          "change_type": "deletion",
+          "text": "2 "
+        },
+        {
+          "change_type": "equal",
+          "text": "Prepare the mash The grains or vegetables are broken down and heated to sterilize the mash and begin the process of converting the starches into sugars. "
+        },
+        {
+          "change_type": "deletion",
+          "text": "3 "
+        },
+        {
+          "change_type": "equal",
+          "text": "Ferment the mash Yeast is added to the mash. Over the next several days, enzymes in the yeast convert the sugars in the mash into alcohol. "
+        },
+        {
+          "change_type": "deletion",
+          "text": "4 "
+        },
+        {
+          "change_type": "equal",
+          "text": "Distill, distill, distill The liquid alcohol produced during fermentation is pumped into stills and heated. The vapors from the alcohol are released and condense in the still. The process is repeated over and over, removing impurities and concentrating the spirit. The smooth, soft taste of Wheatley Vodka is achieved after ten rounds of distillation. "
+        },
+        {
+          "change_type": "deletion",
+          "text": "5 "
+        },
+        {
+          "change_type": "equal",
+          "text": "Add water Water is added to the concentrated spirit to bring the vodka down to its final proof. Vodkas can range from a standard 80 proof (40% alcohol by volume) to a staggering 176 proof (88% alcohol by volume). "
+        },
+        {
+          "change_type": "deletion",
+          "text": "6 "
+        },
+        {
+          "change_type": "equal",
+          "text": "Bottle and ship Once the final proof is achieved, the vodka is bottled, sealed and distributed. DRINK WHEATLEY VODKA RESPONSIBLY \u00a92023 WHEATLEY VODKA, 41% ALC/VOL (82 PROOF), PRODUCED AND BOTTLED BY SAZERAC CO., LOUISVILLE, KY. Privacy Policy \u00b7 Terms of Use \u00b7 Human Rights Policy \u00b7 Accessibility Policy \u00b7 CA Privacy Notice"
+        }
+      ],
+      "similarity_score": 0.9990190213220195
+    }
+  ]
+}
