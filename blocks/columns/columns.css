@@ -31,3 +31,157 @@
     order: unset;
   }
 }
+
+
+.columns.columns8 {
+  background: #fff;
+  height: 300px;
+  width: 220px;  /* Make the visible slice narrower for a tighter "peek" */
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-items: stretch;
+  padding: 0;
+}
+
+/* Blue bar on the far left */
+.columns.columns8::before {
+  display: block;
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  width: 70px;
+  height: 100%;
+  background: #1e3a6a;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Container for image and text: shifted further left to crop image and text more */
+.columns.columns8 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  height: 100%;
+  width: 1100px;
+  min-width: 1100px;
+  z-index: 2;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  margin-left: -130px; /* Increase negative margin to crop more of the image and text */
+}
+
+/* Image column: flush left, only a very thin vertical arc is visible */
+.columns.columns8 .columns-img-col {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0;
+  margin: 0;
+  min-width: 290px;
+  max-width: 290px;
+  position: relative;
+  z-index: 2;
+}
+
+/* The circular image: large and left-aligned (majority hidden) */
+.columns.columns8 .columns-img-col img {
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Text column: cropped, no left padding */
+.columns.columns8 > div > div:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 0;
+  max-width: 420px;
+  padding-left: 0;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+/* Heading: cropped within visible area */
+.columns.columns8 h2,
+.columns.columns8 h2[id] {
+  color: #09213b;
+  font-family: var(--heading-font-family);
+  font-weight: 800;
+  font-size: 2.1rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 70px;
+  letter-spacing: 0.01em;
+  z-index: 2;
+}
+
+/* Paragraph: cropped within visible area */
+.columns.columns8 p {
+  color: #222;
+  font-size: 1rem;
+  line-height: 1.4;
+  margin: 0;
+  max-width: 70px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  z-index: 2;
+}
+
+/* Responsive: show all content on small screens */
+@media (width <= 700px) {
+  .columns.columns8 {
+    width: 100vw;
+    max-width: 100vw;
+    min-width: 0;
+    height: auto;
+    overflow: visible;
+  }
+
+  .columns.columns8::before {
+    display: none;
+  }
+
+  .columns.columns8 > div {
+    min-width: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 0;
+  }
+
+  .columns.columns8 .columns-img-col,
+  .columns.columns8 > div > div:last-child {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .columns.columns8 .columns-img-col img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .columns.columns8 h2,
+  .columns.columns8 h2[id],
+  .columns.columns8 p {
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+    white-space: normal;
+  }
+}
