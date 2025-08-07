@@ -1,43 +1,67 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the questions container within the block
+  // Find the questions container holding all the tabs
   const questionsContainer = element.querySelector('#faq-replace-questions-container');
   if (!questionsContainer) return;
+
+  // Gather all direct children (each tab/question)
   const tabDivs = Array.from(questionsContainer.children);
+  if (!tabDivs.length) return;
 
-  // We need to know the number of columns for the header row to span
-  // Each tab row is 2 columns (label + content)
-  const rows = [];
-  // Header row: single cell, but should span 2 columns
-  // We'll add a colspan=2 to the <th> after creating the table
-  rows.push(['Tabs']);
+  // Compose the rows (header first)
+  const rows = [['Tabs']];
 
-  tabDivs.forEach(tabDiv => {
-    // Tab label: picture (if present) + text up to the first <div> (which is the content)
-    const labelParts = [];
-    const children = Array.from(tabDiv.childNodes);
-    for (let i = 0; i < children.length; i++) {
-      const n = children[i];
-      if (n.nodeType === 1 && n.tagName === 'PICTURE') {
-        labelParts.push(n);
-      } else if (n.nodeType === 1 && n.tagName === 'DIV') {
+  tabDivs.forEach((tab) => {
+    // Find <picture> (icon) if any
+    const picture = tab.querySelector('picture');
+
+    // Extract the label text (the text node after <picture>, before <div>)
+    let label = '';
+    let foundPicture = false;
+    for (let i = 0; i < tab.childNodes.length; i++) {
+      const node = tab.childNodes[i];
+      if (picture && node === picture) {
+        foundPicture = true;
+        continue;
+      }
+      if (foundPicture && node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+        label = node.textContent.trim();
         break;
-      } else if (n.nodeType === 3 && n.textContent.trim() !== '') {
-        labelParts.push(n);
       }
     }
-    let labelCell = labelParts.length === 1 ? labelParts[0] : labelParts;
-    const contentDiv = tabDiv.querySelector('div');
-    let contentCell = contentDiv || '';
-    rows.push([labelCell, contentCell]);
+    if (!label) {
+      // If no picture or text node after, try any text node
+      for (let i = 0; i < tab.childNodes.length; i++) {
+        const node = tab.childNodes[i];
+        if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+          label = node.textContent.trim();
+          break;
+        }
+      }
+    }
+
+    // Compose label cell: icon + label (preserve both if present)
+    let labelCell;
+    if (picture && label) {
+      labelCell = [picture, document.createTextNode(' ' + label)];
+    } else if (picture) {
+      labelCell = [picture];
+    } else if (label) {
+      labelCell = label;
+    } else {
+      labelCell = '';
+    }
+
+    // Extract the content <div> (answer)
+    const contentDiv = Array.from(tab.children).find(el => el.tagName === 'DIV');
+
+    rows.push([
+      labelCell,
+      contentDiv || '',
+    ]);
   });
+
+  // Create and replace the table
   const table = WebImporter.DOMUtils.createTable(rows, document);
-
-  // Fix header cell to span 2 columns
-  const firstRow = table.querySelector('tr');
-  if (firstRow && firstRow.children.length === 1) {
-    firstRow.children[0].setAttribute('colspan', '2');
-  }
-
   element.replaceWith(table);
 }

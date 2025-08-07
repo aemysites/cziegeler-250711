@@ -1,53 +1,45 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find .callout.block inside the element (it is a wrapper for the content)
-  const calloutBlock = element.querySelector('.callout.block');
-  if (!calloutBlock) return;
+  // Find the main block within the section
+  const callout = element.querySelector('.callout.block');
+  if (!callout) return;
 
-  const calloutChildren = Array.from(calloutBlock.children);
+  // Get all direct children of the callout block
+  const children = Array.from(callout.children);
 
-  // Block format:
-  // Row 1: ['Hero (hero3)']
-  // Row 2: background image (first picture)
-  // Row 3: all the content (headline, subheading, button, foreground image, etc)
+  // Variables for background image, headline, foreground image
+  let backgroundPicture = null;
+  let heading = null;
+  let foregroundPicture = null;
 
-  // 1. Header row
-  const headerRow = ['Hero (hero3)'];
-
-  // 2. Background image (first <picture>)
-  let backgroundImage = null;
-  for (const child of calloutChildren) {
+  // Iterate through children to identify relevant elements
+  let pictureCount = 0;
+  for (const child of children) {
     if (child.tagName.toLowerCase() === 'picture') {
-      backgroundImage = child;
-      break;
+      if (pictureCount === 0) {
+        backgroundPicture = child;
+      } else if (pictureCount === 1) {
+        foregroundPicture = child;
+      }
+      pictureCount++;
+    } else if (/^h[1-6]$/i.test(child.tagName)) {
+      heading = child;
     }
   }
-  const backgroundRow = [backgroundImage ? backgroundImage : ''];
 
-  // 3. Content row (all other content not in background image)
-  // The rest: typically headline, secondary image, etc
-  const contentItems = [];
-  let foundBackground = false;
-  for (const child of calloutChildren) {
-    if (!foundBackground && child.tagName.toLowerCase() === 'picture') {
-      // skip background image
-      foundBackground = true;
-      continue;
-    }
-    if (foundBackground) {
-      contentItems.push(child);
-    }
-  }
-  // Defensive: if there is no second picture or headline, handle gracefully
-  const contentRow = [contentItems.length ? contentItems : ''];
+  // Construct the rows for the block table
+  const rows = [];
+  // Header row as specified in the instructions and example
+  rows.push(['Hero (hero3)']);
+  // Second row: Background image (if present)
+  rows.push([backgroundPicture ? backgroundPicture : '']);
+  // Third row: Heading and foreground image (if present)
+  const content = [];
+  if (heading) content.push(heading);
+  if (foregroundPicture) content.push(foregroundPicture);
+  rows.push([content.length === 1 ? content[0] : content]);
 
-  // Compose table cells
-  const cells = [
-    headerRow,
-    backgroundRow,
-    contentRow
-  ];
-
-  const table = WebImporter.DOMUtils.createTable(cells, document);
+  // Build the table and replace the original element
+  const table = WebImporter.DOMUtils.createTable(rows, document);
   element.replaceWith(table);
 }

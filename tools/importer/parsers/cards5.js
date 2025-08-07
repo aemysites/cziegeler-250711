@@ -1,66 +1,47 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  const recipesContainer = element.querySelector('.featured-recipes');
-  if (!recipesContainer) return;
+  // Find the featured-recipes container
+  const featuredRecipes = element.querySelector('.featured-recipes');
+  if (!featuredRecipes) return;
 
-  const recipeCards = Array.from(recipesContainer.children);
-  const rows = [];
+  // Get all direct children (cards)
+  const cards = Array.from(featuredRecipes.children).filter((child) =>
+    child.classList.contains('featured-recipe')
+  );
 
-  // Build data rows (always 2 columns)
-  recipeCards.forEach(card => {
-    let firstCell = null;
-    let secondCell = null;
-    const isButtonCard = card.classList.contains('button-container');
-    if (isButtonCard) {
+  // Header row should have two columns, matching all other rows
+  const rows = [['Cards', '']];
+
+  cards.forEach((card) => {
+    // Button card (All Cocktails)
+    if (card.classList.contains('button-container')) {
       const picture = card.querySelector('picture');
       const button = card.querySelector('a.button');
-      if (picture && button) {
-        firstCell = picture;
-        secondCell = button;
+      if (!picture && !button) return; // skip empty card
+      // Place button below image, each in same cell
+      const cellDiv = document.createElement('div');
+      if (picture) cellDiv.appendChild(picture);
+      if (button) {
+        cellDiv.appendChild(document.createElement('br'));
+        cellDiv.appendChild(button);
       }
-    } else {
-      const a = card.querySelector('a');
-      if (a) {
-        const picture = a.querySelector('picture');
-        if (picture) firstCell = picture;
-        const span = a.querySelector('span');
-        if (span && span.textContent.trim()) {
-          const strong = document.createElement('strong');
-          strong.textContent = span.textContent.trim();
-          secondCell = strong;
-        }
-      }
+      rows.push([cellDiv, '']);
+      return;
     }
-    if (firstCell && secondCell) {
-      rows.push([firstCell, secondCell]);
+    // Regular cards
+    const a = card.querySelector('a');
+    const picture = a ? a.querySelector('picture') : null;
+    const span = a ? a.querySelector('span') : null;
+    let imgCell = picture || '';
+    let textCell = '';
+    if (span && span.textContent.trim()) {
+      const strong = document.createElement('strong');
+      strong.textContent = span.textContent.trim();
+      textCell = strong;
     }
+    rows.push([imgCell, textCell]);
   });
 
-  // Create table element manually to control header colspan
-  const table = document.createElement('table');
-  const headerRow = document.createElement('tr');
-  const headerCell = document.createElement('th');
-  headerCell.textContent = 'Cards';
-  headerCell.setAttribute('colspan', '2');
-  headerRow.appendChild(headerCell);
-  table.appendChild(headerRow);
-
-  // Add data rows
-  rows.forEach(rowCells => {
-    const tr = document.createElement('tr');
-    rowCells.forEach(cell => {
-      const td = document.createElement('td');
-      if (typeof cell === 'string') {
-        td.innerHTML = cell;
-      } else if (Array.isArray(cell)) {
-        td.append(...cell);
-      } else {
-        td.append(cell);
-      }
-      tr.appendChild(td);
-    });
-    table.appendChild(tr);
-  });
-
+  const table = WebImporter.DOMUtils.createTable(rows, document);
   element.replaceWith(table);
 }

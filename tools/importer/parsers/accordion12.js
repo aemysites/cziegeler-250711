@@ -1,31 +1,32 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Prepare header row for Accordion
-  const cells = [['Accordion']];
+  // The accordion is structured as two columns, each column is a <div> inside the main block
+  // Each column has multiple <div>s, each with 2 child divs: [question, answer]
 
-  // Find the main block containing the FAQ columns
-  const faqBlock = element.querySelector('.faq-inplace');
-  if (!faqBlock) {
-    // If not found, do not proceed
-    return;
-  }
-  // Query for the two columns in the block
-  const columns = Array.from(faqBlock.querySelectorAll(':scope > div'));
-  columns.forEach(col => {
-    // For each FAQ item in this column
-    const items = Array.from(col.querySelectorAll(':scope > div'));
-    items.forEach(item => {
-      const qa = Array.from(item.querySelectorAll(':scope > div'));
-      if (qa.length >= 2) {
-        // Reference existing elements for question and answer
-        const question = qa[0];
-        const answer = qa[1];
-        cells.push([question, answer]);
+  // Collect all immediate column divs
+  const columnDivs = Array.from(element.querySelectorAll(':scope > div > div'));
+  const accordionRows = [];
+
+  columnDivs.forEach((columnDiv) => {
+    Array.from(columnDiv.children).forEach((itemDiv) => {
+      // Each itemDiv should have 2 children: [question, answer]
+      if (itemDiv.children.length >= 2) {
+        const title = itemDiv.children[0];
+        const content = itemDiv.children[1];
+        // Only push if both title and content exist and are not empty
+        if (title.textContent.trim() || content.textContent.trim()) {
+          accordionRows.push([title, content]);
+        }
       }
     });
   });
 
-  // Create table using the structure above
-  const table = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(table);
+  // Compose the table: header + each accordion row
+  const tableRows = [
+    ['Accordion'],
+    ...accordionRows
+  ];
+
+  const blockTable = WebImporter.DOMUtils.createTable(tableRows, document);
+  element.replaceWith(blockTable);
 }

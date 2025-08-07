@@ -1,71 +1,55 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Header row as in example
+  // 1. Table header row
   const headerRow = ['Hero (hero4)'];
 
-  // --- Background image row ---
-  // Try: 1. data-background-image attribute 2. inner background-image column img
+  // 2. Background image row (should be the block's background image)
+  let bgImgUrl = element.getAttribute('data-background-image');
   let bgImgEl = null;
-  const bgImgUrl = element.getAttribute('data-background-image');
   if (bgImgUrl) {
-    // Use absolute URL if necessary
-    let src = bgImgUrl;
-    if (src.startsWith('/')) {
-      src = window.location.origin + src;
-    }
     bgImgEl = document.createElement('img');
-    bgImgEl.src = src;
+    bgImgEl.src = bgImgUrl;
     bgImgEl.alt = '';
   } else {
-    // fallback: try to find .background-image img
-    const innerBg = element.querySelector('.background-image img');
-    if (innerBg) bgImgEl = innerBg;
-  }
-  const bgImageRow = [bgImgEl || ''];
-
-  // --- Content row ---
-  // Find the content column (right side)
-  let contentCol = null;
-  const colsBlock = element.querySelector('.columns.block');
-  if (colsBlock) {
-    const colDivs = colsBlock.querySelectorAll(':scope > div');
-    // Heuristic: the column with .background-image-column is likely the right one
-    colDivs.forEach((div) => {
-      if (div.classList.contains('background-image-column')) contentCol = div;
-    });
-    // Fallback: use right column if not found by class
-    if (!contentCol && colDivs.length > 1) {
-      contentCol = colDivs[1];
+    // fallback: try to find in .background-image img
+    const bgImgInBlock = element.querySelector('.background-image img');
+    if (bgImgInBlock && bgImgInBlock.src) {
+      bgImgEl = bgImgInBlock;
     }
   }
-  if (!contentCol) contentCol = element;
+  const bgImgRow = [bgImgEl ? bgImgEl : ''];
 
-  // Collect elements for the content cell, in order: heading, paragraphs, CTA
-  const contentCell = [];
-  // Find the first h1, h2, or h3 in the contentCol
-  const heading = contentCol.querySelector('h1,h2,h3');
-  if (heading) contentCell.push(heading);
-  // Collect all regular paragraphs (ignore .button-container)
-  const paragraphs = [...contentCol.querySelectorAll('p:not(.button-container)')];
-  paragraphs.forEach(p => contentCell.push(p));
-  // Find button/cta
-  // Prefer to reference the <p class="button-container"> if it exists, otherwise the button/a itself
-  const btnContainer = contentCol.querySelector('p.button-container');
-  if (btnContainer) {
-    contentCell.push(btnContainer);
-  } else {
-    const btn = contentCol.querySelector('.button, a.button');
-    if (btn) contentCell.push(btn);
+  // 3. Content row: heading, paragraphs, button (in the right-side column)
+  let contentCol = element.querySelector('.background-image-column');
+  let content = [];
+  if (contentCol) {
+    // Remove the background-image decorative div if present (for clean content)
+    const bgImgDiv = contentCol.querySelector('.background-image');
+    if (bgImgDiv) bgImgDiv.remove();
+    // Heading
+    const heading = contentCol.querySelector('h1, h2, h3, h4, h5, h6');
+    if (heading) content.push(heading);
+    // Paragraph(s), excluding button-container
+    contentCol.querySelectorAll('p:not(.button-container)').forEach(p => content.push(p));
+    // Button/link
+    const buttonContainer = contentCol.querySelector('p.button-container, div.button-container');
+    if (buttonContainer) {
+      const btnLink = buttonContainer.querySelector('a');
+      if (btnLink) content.push(btnLink);
+    }
   }
-  // If nothing found, push empty string
-  const contentRow = [contentCell.length ? contentCell : ''];
 
-  // Compose the table
-  const cells = [
+  // Fallback: if no content found (shouldn't happen for valid block)
+  if (content.length === 0) {
+    content = [''];
+  }
+
+  // Create the table as per the block guidelines
+  const table = WebImporter.DOMUtils.createTable([
     headerRow,
-    bgImageRow,
-    contentRow,
-  ];
-  const block = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(block);
+    bgImgRow,
+    [content],
+  ], document);
+
+  element.replaceWith(table);
 }
