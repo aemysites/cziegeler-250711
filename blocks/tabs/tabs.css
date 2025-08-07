@@ -435,8 +435,6 @@
   margin-bottom: 0;
   border-bottom: none;
 }
-
-/* ICONS: Ensure visible, sized, and centered */
 .tabs .tabs-tab > p:first-child {
   display: flex;
   align-items: center;
@@ -458,16 +456,12 @@
   vertical-align: middle;
   margin: 0;
 }
-
-/* Icon coloring for active/inactive */
 .tabs .tabs-tab:not([aria-selected="true"]) img {
   filter: grayscale(1) brightness(0.85) opacity(0.7);
 }
 .tabs .tabs-tab[aria-selected="true"] img {
   filter: brightness(0) saturate(100%) invert(1);
 }
-
-/* Tab text alignment */
 .tabs .tabs-tab > p:last-child {
   margin: 0;
   font-size: 16px;
@@ -477,14 +471,12 @@
   display: flex;
   align-items: center;
 }
-
-/* Content panel */
 .tabs > .tabs-panel {
   display: none;
   background: #fff;
   border: none;
   padding: 0;
-  margin-left: 0; /* gap handled by flex */
+  margin-left: 0;
   font-size: 16px;
   color: #375775;
   font-weight: 500;
@@ -534,5 +526,191 @@
   .tabs > .tabs-panel {
     margin-left: 0;
     max-width: 100%;
+  }
+}
+
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 1280px;
+  min-height: 350px;
+  height: 350px;
+  gap: 48px;
+  margin: 0 auto;
+  background: none;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+@media (max-width: 900px) {
+  .tabs {
+    flex-direction: column;
+    gap: 32px;
+    max-width: 100%;
+    min-height: 0;
+    height: auto;
+  }
+}
+
+.tabs .tabs-list {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  background: #E9EFF5;
+  border-radius: 16px;
+  width: 260px;
+  min-width: 200px;
+  max-width: 340px;
+  min-height: 0;
+  height: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  gap: 0;
+}
+
+@media (max-width: 900px) {
+  .tabs .tabs-list {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    min-height: unset;
+    height: auto;
+    border-radius: 12px;
+    margin: 0 0 8px 0;
+    overflow-x: auto;
+  }
+}
+
+.tabs .tabs-tab {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  height: 60px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #425B76;
+  background: #E9EFF5;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  padding: 0 24px;
+  box-shadow: none;
+  transition: background 0.18s, color 0.18s;
+  cursor: pointer;
+  box-sizing: border-box;
+  text-align: left;
+  width: 100%;
+  max-width: 100%;
+}
+
+.tabs .tabs-tab:not(:last-child) {
+  margin-bottom: 0;
+  border-bottom: 1.5px solid #f4f7fa;
+}
+
+.tabs .tabs-tab[aria-selected="true"] {
+  background: #02284F;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 16px 16px 0 0;
+  /* Make sure icon is not filtered */
+}
+
+.tabs .tabs-tab[aria-selected="false"]:hover {
+  background: #dde5ef;
+  color: #02284F;
+}
+
+.tabs .tabs-tab > p:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.tabs .tabs-tab picture,
+.tabs .tabs-tab img {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  vertical-align: middle;
+  margin: 0;
+  filter: none;
+  opacity: 1;
+}
+
+.tabs .tabs-tab[aria-selected="false"] img {
+  filter: grayscale(1) brightness(0.80) opacity(0.56);
+}
+.tabs .tabs-tab[aria-selected="true"] img {
+  filter: none;
+}
+
+.tabs .tabs-tab > p:last-child {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.2;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  white-space: normal;
+}
+
+.tabs .tabs-panel {
+  display: none;
+  padding: 0 0 0 20px;
+  background: none;
+  border: none;
+  font-size: 17px;
+  color: #02284F;
+  font-weight: 400;
+  line-height: 1.7;
+  max-width: 650px;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+  align-self: flex-start;
+  white-space: normal;
+  word-break: break-word;
+  margin: 0;
+}
+
+.tabs .tabs-panel[aria-hidden="false"] {
+  display: block;
+}
+
+.tabs .tabs-panel > div > p {
+  margin: 0;
+  padding: 0;
+  font-size: 17px;
+  color: #02284F;
+  font-weight: 400;
+  line-height: 1.7;
+  text-align: left;
+}
+
+@media (max-width: 900px) {
+  .tabs .tabs-panel {
+    max-width: 100%;
+    padding: 0;
+  }
+  .tabs .tabs-panel[aria-hidden="false"] {
+    padding: 0;
   }
 }
