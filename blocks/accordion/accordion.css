@@ -1,6 +1,3 @@
-/* Disable no-descending-specificity rule for this file */
-/* stylelint-disable no-descending-specificity */
-
 .accordion details {
   border: 1px solid #dadada;
   margin: 0;
@@ -309,8 +306,6 @@
   padding: 0;
   min-width: 0;
   width: 100%;
-
-  /* grid will auto-place these in the correct order */
 }
 
 .accordion .accordion-item-label {
@@ -331,8 +326,6 @@
   box-sizing: border-box;
   cursor: pointer;
   min-height: 40px;
-
-  /* fix for icon alignment */
   gap: 12px;
 }
 
@@ -354,8 +347,6 @@
   line-height: 1.35;
   overflow-wrap: break-word;
 }
-
-/* Outlined circle always vertically centered with row */
 .accordion .accordion-item-label::after {
   display: inline-block;
   width: 24px;
@@ -405,4 +396,127 @@
     width: 20px;
     height: 20px;
   }
+}
+
+.accordion.block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 1fr;
+  gap: 0 72px;
+  max-width: 1120px;
+  margin: 48px auto 0 auto;
+  width: 100%;
+  background: #fff;
+  box-sizing: border-box;
+  align-items: stretch;
+  justify-items: stretch;
+  padding: 0;
+}
+
+@media (max-width: 900px) {
+  .accordion.block {
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: 100%;
+    padding: 0 8px;
+  }
+}
+
+.accordion.block .accordion-item {
+  width: 100%;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  /* direct grid child, let grid handle row height */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.accordion.block .accordion-item-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: bold;
+  color: #003366;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  border-bottom: 1px solid #D8D8D8;
+  min-height: 56px;
+  gap: 16px;
+  padding: 18px 0 18px 0;
+  margin: 0;
+}
+
+.accordion.block .accordion-item:nth-child(6) .accordion-item-label,
+.accordion.block .accordion-item:nth-child(12) .accordion-item-label {
+  border-bottom: none;
+}
+
+.accordion.block .accordion-item-label p {
+  margin: 0;
+  font-weight: bold;
+  font-size: 16px;
+  color: #003366;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 100%;
+  text-align: left;
+  font-family: var(--body-font-family);
+  letter-spacing: 0.01em;
+  line-height: 1.35;
+  overflow-wrap: break-word;
+}
+
+.accordion.block .accordion-item-label::after {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid #003366;
+  background: #fff;
+  margin-left: 16px;
+  margin-right: 0;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.accordion.block .accordion-item-label::-webkit-details-marker,
+.accordion.block .accordion-item-label::marker {
+  display: none;
+}
+
+.accordion.block .accordion-item-body {
+  padding: 0;
+  background: transparent;
+  color: #222;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.accordion.block .accordion-item + .accordion-item {
+  margin-top: 0;
+}
+
+/* Place the first 6 items in column 1, the next 6 in column 2 */
+.accordion.block .accordion-item {
+  grid-column: auto;
+}
+.accordion.block .accordion-item:nth-child(-n+6) {
+  grid-column: 1;
+}
+.accordion.block .accordion-item:nth-child(n+7) {
+  grid-column: 2;
 }
