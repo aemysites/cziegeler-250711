@@ -226,11 +226,11 @@
       ]
     },
     {
-      "name": "Cards (no images)",
+      "name": "Columns",
       "cluster": 13,
-      "source": "Cards",
-      "target": "Cards",
-      "key": "cardsNoImages13",
+      "source": "Columns",
+      "target": "Columns (columns13)",
+      "key": "columns13",
       "instances": [
         {
           "url": "https://www.wheatleyvodka.com/about-wheatley",
