@@ -1,23 +1,40 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Get all immediate child divs (each button group)
-  const columns = Array.from(element.querySelectorAll(':scope > div'));
-  // For each column, extract its button and related image or svg
-  const rowCells = columns.map((col) => {
-    // Find the button
-    const button = col.querySelector('a.button');
-    // Find the svg or img
-    let icon = col.querySelector('.buy-link-image svg, .locator-link-image img');
-    // Create cell content
-    const cellContent = [];
-    if (button) cellContent.push(button);
-    if (icon) cellContent.push(icon);
-    return cellContent;
-  });
-  // Build the table as per the spec: single-cell header row, followed by a row of N columns
-  const table = WebImporter.DOMUtils.createTable([
-    ['Columns (columns6)'],
-    rowCells
-  ], document);
-  element.replaceWith(table);
+  // Extract both button containers
+  const buyLink = element.querySelector('.buy-link.button-container');
+  const locatorLink = element.querySelector('.locator-link.button-container');
+
+  // Get contents for first column
+  const buyButton = buyLink ? buyLink.querySelector('a') : null;
+  const buyLogo = buyLink ? buyLink.querySelector('.buy-link-image > span') : null;
+  const buyCellContent = [];
+  if (buyButton) buyCellContent.push(buyButton);
+  if (buyLogo) buyCellContent.push(buyLogo);
+
+  // Get contents for second column
+  const locatorButton = locatorLink ? locatorLink.querySelector('a') : null;
+  const locatorImg = locatorLink ? locatorLink.querySelector('img') : null;
+  const locatorCellContent = [];
+  if (locatorButton) locatorCellContent.push(locatorButton);
+  if (locatorImg) locatorCellContent.push(locatorImg);
+
+  // Prepare header row as a single cell (will do colspan after table is created)
+  const headerRow = ['Columns (columns6)'];
+  const contentRow = [buyCellContent.length ? buyCellContent : '', locatorCellContent.length ? locatorCellContent : ''];
+  const rows = [
+    headerRow,
+    contentRow
+  ];
+
+  // Create the table
+  const block = WebImporter.DOMUtils.createTable(rows, document);
+
+  // Fix the header <th> to span across all columns
+  const th = block.querySelector('tr:first-child th');
+  if (th) {
+    th.colSpan = contentRow.length;
+  }
+
+  // Replace original element
+  element.replaceWith(block);
 }

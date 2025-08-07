@@ -1,69 +1,77 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the carousel block containing the slides
-  const quoteCarousel = element.querySelector('.quote-carousel.block');
-  if (!quoteCarousel) return;
+  // Find the carousel block
+  const carousel = element.querySelector('.quote-carousel.block');
+  if (!carousel) return;
 
-  const quoteCards = Array.from(quoteCarousel.querySelectorAll('.quotecard'));
-  if (!quoteCards.length) return;
+  // Gather all quotecard slides
+  const slides = Array.from(carousel.querySelectorAll('.quotecard'));
 
-  // Build block rows: first row is header
+  // Header row as in the example
   const rows = [['Carousel']];
 
-  quoteCards.forEach((card) => {
-    // Extract image (mandatory) from .aphorist > picture > img
-    let img = null;
-    const aphorist = card.querySelector('.aphorist');
+  // Process each slide
+  slides.forEach((slide) => {
+    // IMAGE extraction: First cell should be ONLY the image from the aphorist picture img
+    let imgEl = null;
+    const aphorist = slide.querySelector('.aphorist');
     if (aphorist) {
       const picture = aphorist.querySelector('picture');
       if (picture) {
-        img = picture.querySelector('img');
+        imgEl = picture.querySelector('img');
       }
     }
 
-    // Prepare text cell (quote + attribution)
-    const cellContent = [];
-
-    // Quote text in <p> (styled as <h3> per semantic importance)
-    const p = card.querySelector('p');
-    if (p && p.textContent.trim()) {
-      const heading = document.createElement('h3');
-      heading.textContent = p.textContent.trim();
-      cellContent.push(heading);
+    // TEXT extraction: Second cell: quote (p), author (li[0]), organization (li[1])
+    const textCellContent = [];
+    // Get quote (may be null)
+    const quoteP = slide.querySelector('p');
+    if (quoteP) {
+      // Use <blockquote> for semantic meaning of the quote
+      const blockquote = document.createElement('blockquote');
+      blockquote.appendChild(quoteP);
+      textCellContent.push(blockquote);
     }
-
-    // Attribution from .aphorist > ul > li
+    // Author and org
     if (aphorist) {
       const ul = aphorist.querySelector('ul');
       if (ul) {
         const lis = ul.querySelectorAll('li');
-        if (lis.length > 0 && lis[0].textContent.trim()) {
-          // Author name bold
-          const author = document.createElement('strong');
-          author.textContent = lis[0].textContent.trim();
-          cellContent.push(author);
+        if (lis.length > 0) {
+          // Author as <strong>
+          const strong = document.createElement('strong');
+          strong.textContent = lis[0].textContent.trim();
+          textCellContent.push(document.createElement('br'));
+          textCellContent.push(strong);
         }
-        if (lis.length > 1 && lis[1].textContent.trim()) {
-          // Affiliation
-          const org = document.createElement('div');
-          org.textContent = lis[1].textContent.trim();
-          cellContent.push(org);
+        if (lis.length > 1) {
+          // Org as <span>
+          const span = document.createElement('span');
+          span.textContent = lis[1].textContent.trim();
+          textCellContent.push(document.createElement('br'));
+          textCellContent.push(span);
         }
       }
     }
-
-    // Only add row if we have an image and at least quote or author
-    if (img && cellContent.length > 0) {
-      rows.push([
-        img,
-        cellContent
-      ]);
+    // Only add br if both author/org exist
+    // Remove first br if textCellContent is just [blockquote, br]
+    if (textCellContent.length === 2 && textCellContent[1].tagName === 'BR') {
+      textCellContent.pop();
     }
+    // If quoteP is null, remove blockquote from textCellContent
+    if (!quoteP && textCellContent.length > 0 && textCellContent[0].tagName === 'BLOCKQUOTE') {
+      textCellContent.shift();
+    }
+
+    // Place the original elements directly in the table cells
+    rows.push([
+      imgEl,
+      textCellContent
+    ]);
   });
 
-  // Create block table and replace original element
-  if (rows.length > 1) {
-    const block = WebImporter.DOMUtils.createTable(rows, document);
-    element.replaceWith(block);
-  }
+  // Create the block table
+  const table = WebImporter.DOMUtils.createTable(rows, document);
+  // Replace the original element with the block table
+  element.replaceWith(table);
 }
