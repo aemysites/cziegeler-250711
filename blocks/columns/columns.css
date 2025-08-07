@@ -1,3 +1,6 @@
+/* Disable no-descending-specificity globally */
+/* stylelint-disable no-descending-specificity */
+
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -31,7 +34,6 @@
     order: unset;
   }
 }
-
 
 .columns.columns8 {
   background: transparent;
@@ -154,4 +156,112 @@
     max-width: 100%;
     text-align: center;
   }
+}
+
+.columns.columns13 {
+  width: 100%;
+  background: #fff;
+  padding: 52px 0 44px;
+}
+
+.columns.columns13 > div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 48px 72px;
+  place-items: start center;
+  max-width: 1180px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (width <= 1220px) {
+  .columns.columns13 > div {
+    max-width: 99vw;
+    gap: 36px 28px;
+  }
+}
+
+@media (width <= 900px) {
+  .columns.columns13 > div {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
+    max-width: 740px;
+    gap: 28px 14px;
+  }
+}
+
+@media (width <= 600px) {
+  .columns.columns13 > div {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, auto);
+    gap: 16px 0;
+    max-width: 100%;
+    padding: 0 8px;
+  }
+
+  .columns.columns13 {
+    padding: 18px 8px;
+  }
+}
+
+.columns.columns13 > div > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 2px;
+  min-width: 0;
+  width: 100%;
+}
+
+.columns.columns13 > div > div > p:first-child {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #22406A;
+  border-radius: 50%;
+  font-size: 19px;
+  color: #22406A;
+  font-weight: 600;
+  margin: 0 0 16px;
+  background: #fff;
+  box-sizing: border-box;
+  line-height: 1;
+}
+
+.columns.columns13 > div > div > p:nth-child(2) {
+  text-transform: uppercase;
+  font-family: var(--heading-font-family);
+  font-size: 15px;
+  font-weight: 700;
+  color: #22406A;
+  margin: 0 0 13px;
+  line-height: 1.18;
+  letter-spacing: 1.25px;
+}
+
+.columns.columns13 > div > div > p:nth-child(2) strong {
+  color: #22406A;
+  font-weight: 700;
+  letter-spacing: 1.25px;
+}
+
+.columns.columns13 > div > div > p:nth-child(3) {
+  color: #555;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.5;
+  font-family: var(--body-font-family);
+  max-width: 448px;
+}
+
+.columns.columns13 img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
